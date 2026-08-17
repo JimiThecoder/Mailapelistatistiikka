@@ -1,0 +1,120 @@
+﻿namespace Mailapelistatistiikka
+{
+    partial class Form2
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblOtteluidenMaara = new System.Windows.Forms.Label();
+            this.lblVoittoprosentti = new System.Windows.Forms.Label();
+            this.lstOttelut = new System.Windows.Forms.ListBox();
+            this.btnPaivita = new System.Windows.Forms.Button();
+            this.btnTakaisin = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(332, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(123, 25);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Pelitilastot";
+            // 
+            // lblOtteluidenMaara
+            // 
+            this.lblOtteluidenMaara.AutoSize = true;
+            this.lblOtteluidenMaara.Location = new System.Drawing.Point(334, 71);
+            this.lblOtteluidenMaara.Name = "lblOtteluidenMaara";
+            this.lblOtteluidenMaara.Size = new System.Drawing.Size(81, 13);
+            this.lblOtteluidenMaara.TabIndex = 1;
+            this.lblOtteluidenMaara.Text = "Otteluita pelattu";
+            // 
+            // lblVoittoprosentti
+            // 
+            this.lblVoittoprosentti.AutoSize = true;
+            this.lblVoittoprosentti.Location = new System.Drawing.Point(334, 117);
+            this.lblVoittoprosentti.Name = "lblVoittoprosentti";
+            this.lblVoittoprosentti.Size = new System.Drawing.Size(48, 13);
+            this.lblVoittoprosentti.TabIndex = 2;
+            this.lblVoittoprosentti.Text = "Voitto- %";
+            // 
+            // lstOttelut
+            // 
+            this.lstOttelut.FormattingEnabled = true;
+            this.lstOttelut.Location = new System.Drawing.Point(337, 169);
+            this.lstOttelut.Name = "lstOttelut";
+            this.lstOttelut.Size = new System.Drawing.Size(152, 95);
+            this.lstOttelut.TabIndex = 3;
+            // 
+            // btnPaivita
+            // 
+            this.btnPaivita.Location = new System.Drawing.Point(294, 294);
+            this.btnPaivita.Name = "btnPaivita";
+            this.btnPaivita.Size = new System.Drawing.Size(75, 23);
+            this.btnPaivita.TabIndex = 4;
+            this.btnPaivita.Text = "Päivitä";
+            this.btnPaivita.UseVisualStyleBackColor = true;
+            // 
+            // btnTakaisin
+            // 
+            this.btnTakaisin.Location = new System.Drawing.Point(462, 294);
+            this.btnTakaisin.Name = "btnTakaisin";
+            this.btnTakaisin.Size = new System.Drawing.Size(75, 23);
+            this.btnTakaisin.TabIndex = 5;
+            this.btnTakaisin.Text = "Takaisin";
+            this.btnTakaisin.UseVisualStyleBackColor = true;
+            // 
+            // Form2
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnTakaisin);
+            this.Controls.Add(this.btnPaivita);
+            this.Controls.Add(this.lstOttelut);
+            this.Controls.Add(this.lblVoittoprosentti);
+            this.Controls.Add(this.lblOtteluidenMaara);
+            this.Controls.Add(this.label1);
+            this.Name = "Form2";
+            this.Text = "Tilastot";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblOtteluidenMaara;
+        private System.Windows.Forms.Label lblVoittoprosentti;
+        private System.Windows.Forms.ListBox lstOttelut;
+        private System.Windows.Forms.Button btnPaivita;
+        private System.Windows.Forms.Button btnTakaisin;
+    }
+}
