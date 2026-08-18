@@ -86,10 +86,7 @@ namespace Mailapelistatistiikka
         private void btnNaytaTilastot_Click(object sender, EventArgs e)
         {
             Form2 tilastoNakyma = new Form2();
-            this.Hide();
-            this.Show();
-            tilastoNakyma.ShowDialog();
-            this.Show();
+            tilastoNakyma.Show();
         }
     }
 }
