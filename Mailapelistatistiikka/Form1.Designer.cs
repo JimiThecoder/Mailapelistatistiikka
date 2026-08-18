@@ -71,7 +71,8 @@
             "Sulkapallo",
             "Tennis",
             "Pesäpallo",
-            "Padel"});
+            "Padel",
+            "Pöytätennis"});
             this.cmbLaji.Location = new System.Drawing.Point(295, 74);
             this.cmbLaji.Name = "cmbLaji";
             this.cmbLaji.Size = new System.Drawing.Size(101, 21);
@@ -272,7 +273,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(779, 450);
             this.Controls.Add(this.btnNaytaTilastot);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
@@ -299,7 +300,7 @@
             this.Controls.Add(this.cmbLaji);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
-            this.Text = "S";
+            this.Text = "Mailapelistatistiikka - Uusi ottelu";
             this.ResumeLayout(false);
             this.PerformLayout();
 

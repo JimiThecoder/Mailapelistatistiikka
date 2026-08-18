@@ -80,6 +80,7 @@
             this.btnPaivita.TabIndex = 4;
             this.btnPaivita.Text = "Päivitä";
             this.btnPaivita.UseVisualStyleBackColor = true;
+            this.btnPaivita.Click += new System.EventHandler(this.btnPaivita_Click);
             // 
             // btnTakaisin
             // 
@@ -89,6 +90,7 @@
             this.btnTakaisin.TabIndex = 5;
             this.btnTakaisin.Text = "Takaisin";
             this.btnTakaisin.UseVisualStyleBackColor = true;
+            this.btnTakaisin.Click += new System.EventHandler(this.btnTakaisin_Click);
             // 
             // Form2
             // 
@@ -102,7 +104,8 @@
             this.Controls.Add(this.lblOtteluidenMaara);
             this.Controls.Add(this.label1);
             this.Name = "Form2";
-            this.Text = "Tilastot";
+            this.Text = "Mailapelistatistiikka - Tilastot";
+            this.Load += new System.EventHandler(this.Form2_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
