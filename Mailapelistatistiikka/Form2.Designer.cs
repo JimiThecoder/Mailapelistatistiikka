@@ -40,7 +40,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(332, 31);
+            this.label1.Location = new System.Drawing.Point(339, 31);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(123, 25);
             this.label1.TabIndex = 0;
@@ -49,34 +49,36 @@
             // lblOtteluidenMaara
             // 
             this.lblOtteluidenMaara.AutoSize = true;
-            this.lblOtteluidenMaara.Location = new System.Drawing.Point(334, 71);
+            this.lblOtteluidenMaara.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lblOtteluidenMaara.Location = new System.Drawing.Point(346, 69);
             this.lblOtteluidenMaara.Name = "lblOtteluidenMaara";
-            this.lblOtteluidenMaara.Size = new System.Drawing.Size(81, 13);
+            this.lblOtteluidenMaara.Size = new System.Drawing.Size(109, 18);
             this.lblOtteluidenMaara.TabIndex = 1;
             this.lblOtteluidenMaara.Text = "Otteluita pelattu";
             // 
             // lblVoittoprosentti
             // 
             this.lblVoittoprosentti.AutoSize = true;
-            this.lblVoittoprosentti.Location = new System.Drawing.Point(334, 117);
+            this.lblVoittoprosentti.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lblVoittoprosentti.Location = new System.Drawing.Point(346, 110);
             this.lblVoittoprosentti.Name = "lblVoittoprosentti";
-            this.lblVoittoprosentti.Size = new System.Drawing.Size(48, 13);
+            this.lblVoittoprosentti.Size = new System.Drawing.Size(68, 18);
             this.lblVoittoprosentti.TabIndex = 2;
             this.lblVoittoprosentti.Text = "Voitto- %";
             // 
             // lstOttelut
             // 
             this.lstOttelut.FormattingEnabled = true;
-            this.lstOttelut.Location = new System.Drawing.Point(337, 169);
+            this.lstOttelut.Location = new System.Drawing.Point(175, 153);
             this.lstOttelut.Name = "lstOttelut";
-            this.lstOttelut.Size = new System.Drawing.Size(152, 95);
+            this.lstOttelut.Size = new System.Drawing.Size(450, 173);
             this.lstOttelut.TabIndex = 3;
             // 
             // btnPaivita
             // 
-            this.btnPaivita.Location = new System.Drawing.Point(294, 294);
+            this.btnPaivita.Location = new System.Drawing.Point(175, 332);
             this.btnPaivita.Name = "btnPaivita";
-            this.btnPaivita.Size = new System.Drawing.Size(75, 23);
+            this.btnPaivita.Size = new System.Drawing.Size(110, 32);
             this.btnPaivita.TabIndex = 4;
             this.btnPaivita.Text = "Päivitä";
             this.btnPaivita.UseVisualStyleBackColor = true;
@@ -84,9 +86,9 @@
             // 
             // btnTakaisin
             // 
-            this.btnTakaisin.Location = new System.Drawing.Point(462, 294);
+            this.btnTakaisin.Location = new System.Drawing.Point(515, 332);
             this.btnTakaisin.Name = "btnTakaisin";
-            this.btnTakaisin.Size = new System.Drawing.Size(75, 23);
+            this.btnTakaisin.Size = new System.Drawing.Size(110, 32);
             this.btnTakaisin.TabIndex = 5;
             this.btnTakaisin.Text = "Takaisin";
             this.btnTakaisin.UseVisualStyleBackColor = true;
