@@ -57,9 +57,15 @@ namespace Mailapelistatistiikka
             foreach (var ottelu in ottelut)
             {
                 string rivi = ottelu.Paivamaara.ToString("dd.MM.yyyy") + " - " + ottelu.Laji + " vs. " + ottelu.Vastustaja;
+
+                if (!string.IsNullOrWhiteSpace(ottelu.Muistiinpanot))
+                {
+                    rivi += " (" + ottelu.Muistiinpanot + ")";
+                }
                 lstOttelut.Items.Add(rivi);
             }
         }
+
 
         // Päivitä-nappi: lukee tiedoston uudelleen, jos on tallennettu uusia otteluita
         // sen jälkeen kun Form2 avattiin.
