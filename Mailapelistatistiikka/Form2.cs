@@ -43,8 +43,9 @@ namespace Mailapelistatistiikka
             if (ottelut.Count > 0)
             {
                 int voitot = ottelut.Count(o => o.OnVoitto());
+                int tasapelit = ottelut.Count(o => o.OnTasapeli());
                 double voittoprosentti = (double)voitot / ottelut.Count * 100;
-                lblVoittoprosentti.Text = "Voitto-% " + voittoprosentti.ToString("F1") + "%";
+                lblVoittoprosentti.Text = "Voitto-% " + voittoprosentti.ToString("F1") + "% (tasapelejä: " + tasapelit + ")";
             }
             else
             {
@@ -54,18 +55,24 @@ namespace Mailapelistatistiikka
             // Viimeisimmät ottelut listana
             lstOttelut.Items.Clear();
 
-            foreach (var ottelu in ottelut)
+            if (ottelut.Count == 0)
             {
-                string rivi = ottelu.Paivamaara.ToString("dd.MM.yyyy") + " - " + ottelu.Laji + " vs. " + ottelu.Vastustaja;
-
-                if (!string.IsNullOrWhiteSpace(ottelu.Muistiinpanot))
+                lstOttelut.Items.Add("Ei vielä pelattuja otteluita.");
+            }
+            else
+            {
+                foreach (var ottelu in ottelut)
                 {
-                    rivi += " (" + ottelu.Muistiinpanot + ")";
+                    string rivi = ottelu.Paivamaara.ToString("dd.MM.yyyy") + " - " + ottelu.Laji + " vs. " + ottelu.Vastustaja;
+                    if (!string.IsNullOrWhiteSpace(ottelu.Muistiinpanot))
+                    {
+                        rivi += " (" + ottelu.Muistiinpanot + ")";
+                    }
+                    lstOttelut.Items.Add(rivi);
+
                 }
-                lstOttelut.Items.Add(rivi);
             }
         }
-
 
         // Päivitä-nappi: lukee tiedoston uudelleen, jos on tallennettu uusia otteluita
         // sen jälkeen kun Form2 avattiin.

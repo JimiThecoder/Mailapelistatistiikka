@@ -18,7 +18,8 @@ namespace Mailapelistatistiikka
         //tarkistaa ovatko numerot kelvollisia
         private void LisaaEraJosTaytetty(Ottelu ottelu, string omaTeksti, string vastustajanTeksti)
         {
-            if (int.TryParse(omaTeksti, out int oma) && int.TryParse(vastustajanTeksti, out int vastustajan))
+            if (int.TryParse(omaTeksti, out int oma) && oma >= 0 &&
+                int.TryParse(vastustajanTeksti, out int vastustajan) && vastustajan >= 0)
             {
                 ottelu.LisaaEra(oma, vastustajan);
             }
@@ -55,8 +56,11 @@ namespace Mailapelistatistiikka
             cmbLaji.SelectedIndex = -1;
         }
 
+        // Tallennetaan lomakkeen tiedot uutena otteluna,
+        // jos syöte on kelvollista.
         private void btnTallenna_Click(object sender, EventArgs e)
         {
+            // Tarkistetaan syöte ennen tallennusta - estetään virheellisen datan tallennus
             if (!SyoteOnKelvollinen())
             {
                 lblViesti.Text = "Tarkista syötteet: pisteiden tulee olla kokonaislukuja ja vastustajan nimi ei voi olla tyhjä.";
@@ -64,25 +68,35 @@ namespace Mailapelistatistiikka
                 return;
             }
 
+            // Rakennetaan uusi Ottelu-olio lomakkeen tiedoista 
             Ottelu uusiOttelu = new Ottelu();
             uusiOttelu.Laji = cmbLaji.SelectedItem?.ToString() ?? "";
             uusiOttelu.Vastustaja = txtVastustaja.Text.Trim();
             uusiOttelu.Paivamaara = dtpPaivamaara.Value;
             uusiOttelu.Muistiinpanot = txtMuistiinpanot.Text.Trim();
 
+            // Lisätään kaikki kolme erää, jos ne on täytetty kelvollisesti
             LisaaEraJosTaytetty(uusiOttelu, txtOma1.Text, txtVastustaja1.Text);
             LisaaEraJosTaytetty(uusiOttelu, txtOma2.Text, txtVastustaja2.Text);
             LisaaEraJosTaytetty(uusiOttelu, txtOma3.Text, txtVastustaja3.Text);
 
+            // Tallennetaan ottelu Json-tiedostoon
             TiedostoHallinta.TallennaOttelu(uusiOttelu);
 
-            string tulos = uusiOttelu.OnVoitto() ? "Voitto!" : "Häviö";
-            lblViesti.Text = $"Ottelu tallennettu. Tulos: {tulos}";
+            // Näytetään käyttäjälle tulos ja tyhjennetään lomake seuraavaa ottelua varten
+            string tulos;
+            if (uusiOttelu.OnTasapeli())
+                tulos = "Tasapeli";
+            else
+                tulos = uusiOttelu.OnVoitto() ? "Voitto" : "Häviö";
+                lblViesti.Text = $"Ottelu tallennettu. Tulos: {tulos}";
             lblViesti.ForeColor = System.Drawing.Color.Green;
 
             TyhjennaLomake();
         }
 
+        // Avaa Form2:n (tilastonäkymä) omana ikkunanaan.
+        // Form1 pysyy käytettävänä samaan aikaan.
         private void btnNaytaTilastot_Click(object sender, EventArgs e)
         {
             Form2 tilastoNakyma = new Form2();
