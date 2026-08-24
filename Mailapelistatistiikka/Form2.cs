@@ -12,6 +12,8 @@ namespace Mailapelistatistiikka
 {
     public partial class Form2 : Form
     {
+        private List<Ottelu> nykyisetOttelut = new List<Ottelu>();
+
         public Form2()
         {
             InitializeComponent();
@@ -21,7 +23,7 @@ namespace Mailapelistatistiikka
         private void btnTakaisin_Click(object sender, EventArgs e)
         {
             this.Close();
-            
+
         }
 
         // Ajetaan automaattisesti kun Form2 avautuu - hakee tuoreimmat tilastot näkyviin.
@@ -34,6 +36,7 @@ namespace Mailapelistatistiikka
         // voittoprosentin ja viimeisimpien otteluiden listan näkymään.
         private void PaivitaTilastot()
         {
+            nykyisetOttelut = TiedostoHallinta.LueOttelut();
             var ottelut = TiedostoHallinta.LueOttelut();
 
             // Otteluiden kokonaismäärä
@@ -80,5 +83,51 @@ namespace Mailapelistatistiikka
         {
             PaivitaTilastot();
         }
+
+        // Tyhjennä-nappi
+        private void btnTyhjenna_Click(object sender, EventArgs e)
+        {
+            DialogResult vastaus = MessageBox.Show(
+                "Haluatko varmasti poistaa KAIKKI tallennetut ottelut? Tätä ei voi perua.",
+                "Vahvista poisto",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
+
+            if (vastaus == DialogResult.Yes)
+            {
+                TiedostoHallinta.TyhjennaKaikki();
+                PaivitaTilastot();
+            }
+        }
+
+        // Poista valittu ottelu-nappi
+        private void btnPoistaValittu_Click(object sender, EventArgs e)
+        {
+            int valittuIndeksi = lstOttelut.SelectedIndex;
+
+            if (valittuIndeksi == -1 || valittuIndeksi >= nykyisetOttelut.Count)
+            {
+                MessageBox.Show("Valitse ensin ottelun listasta.");
+                return;
+            }
+
+            Ottelu valittuOttelu = nykyisetOttelut[valittuIndeksi];
+
+            DialogResult vastaus = MessageBox.Show(
+                "Haluatko varmasti poistaa tämän ottelun?\n" +
+                valittuOttelu.Paivamaara.ToString("dd.MM.yyyy") + " - " + valittuOttelu.Laji + " vs. " + valittuOttelu.Vastustaja,
+                "Vahvista poisto",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
+
+            if (vastaus == DialogResult.Yes)
+            {
+                TiedostoHallinta.PoistaOttelu(valittuIndeksi);
+                PaivitaTilastot();
+            }
+        }
     }
 }
+        
+    
+

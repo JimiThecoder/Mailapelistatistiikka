@@ -34,6 +34,8 @@
             this.lstOttelut = new System.Windows.Forms.ListBox();
             this.btnPaivita = new System.Windows.Forms.Button();
             this.btnTakaisin = new System.Windows.Forms.Button();
+            this.btnTyhjenna = new System.Windows.Forms.Button();
+            this.btnPoistaValittu = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -94,11 +96,33 @@
             this.btnTakaisin.UseVisualStyleBackColor = true;
             this.btnTakaisin.Click += new System.EventHandler(this.btnTakaisin_Click);
             // 
+            // btnTyhjenna
+            // 
+            this.btnTyhjenna.Location = new System.Drawing.Point(515, 370);
+            this.btnTyhjenna.Name = "btnTyhjenna";
+            this.btnTyhjenna.Size = new System.Drawing.Size(110, 32);
+            this.btnTyhjenna.TabIndex = 6;
+            this.btnTyhjenna.Text = "Tyhjennä kaikki";
+            this.btnTyhjenna.UseVisualStyleBackColor = true;
+            this.btnTyhjenna.Click += new System.EventHandler(this.btnTyhjenna_Click);
+            // 
+            // btnPoistaValittu
+            // 
+            this.btnPoistaValittu.Location = new System.Drawing.Point(515, 406);
+            this.btnPoistaValittu.Name = "btnPoistaValittu";
+            this.btnPoistaValittu.Size = new System.Drawing.Size(110, 32);
+            this.btnPoistaValittu.TabIndex = 7;
+            this.btnPoistaValittu.Text = "Poista valittu";
+            this.btnPoistaValittu.UseVisualStyleBackColor = true;
+            this.btnPoistaValittu.Click += new System.EventHandler(this.btnPoistaValittu_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnPoistaValittu);
+            this.Controls.Add(this.btnTyhjenna);
             this.Controls.Add(this.btnTakaisin);
             this.Controls.Add(this.btnPaivita);
             this.Controls.Add(this.lstOttelut);
@@ -121,5 +145,7 @@
         private System.Windows.Forms.ListBox lstOttelut;
         private System.Windows.Forms.Button btnPaivita;
         private System.Windows.Forms.Button btnTakaisin;
+        private System.Windows.Forms.Button btnTyhjenna;
+        private System.Windows.Forms.Button btnPoistaValittu;
     }
 }

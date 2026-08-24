@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Security.Cryptography.X509Certificates;
 using System.Text.Json;
 
 namespace Mailapelistatistiikka
@@ -46,5 +47,34 @@ namespace Mailapelistatistiikka
                 return new List<Ottelu>();
             }
         }
+        public static void TyhjennaKaikki()
+        {
+            if (File.Exists(tiedostonNimi))
+            {
+                File.Delete(tiedostonNimi);
+            }
+        }
+
+        // Poista ottelu
+        public static void PoistaOttelu(int indeksi)
+        {
+            List<Ottelu> ottelut = LueOttelut();
+
+            if (indeksi >= 0 && indeksi < ottelut.Count)
+            {
+                ottelut.RemoveAt(indeksi);
+
+                var asetukset = new JsonSerializerOptions { WriteIndented = true };
+                string json = JsonSerializer.Serialize(ottelut, asetukset);
+                File.WriteAllText(tiedostonNimi, json);
+            }
+        }
     }
 }
+            
+       
+    
+
+            
+        
+    
