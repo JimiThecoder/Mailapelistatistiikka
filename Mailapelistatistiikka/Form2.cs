@@ -69,7 +69,12 @@ namespace Mailapelistatistiikka
                     string rivi = ottelu.Paivamaara.ToString("dd.MM.yyyy") + " - " + ottelu.Laji + " vs. " + ottelu.Vastustaja;
                     if (!string.IsNullOrWhiteSpace(ottelu.Muistiinpanot))
                     {
-                        rivi += " (" + ottelu.Muistiinpanot + ")";
+                        string muistiinpano = ottelu.Muistiinpanot;
+                        if (muistiinpano.Length > 30)
+                        {
+                            muistiinpano = muistiinpano.Substring(0, 30) + "...";
+                        }
+                        rivi += " (" + muistiinpano + ")";
                     }
                     lstOttelut.Items.Add(rivi);
 
